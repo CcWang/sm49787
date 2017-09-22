@@ -1,0 +1,13 @@
+{
+  "id" : 4556
+  "firstName" : "John",
+  "lastName" : "Smith",
+  "phoneNumber" : "+16505559606",
+  "address1" : "123 Main Street",
+  "address2" : null,
+  "city": "Anytown",
+  "state": "CA",
+  "country" : "us",
+  "postalCode" : "94035",
+  "rating": 4.5
+}
