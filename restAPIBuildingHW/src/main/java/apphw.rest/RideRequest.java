@@ -20,6 +20,7 @@ public class RideRequest{
     }
 
     public void sedId(String id){
+
         this.id = id;
     }
 }
