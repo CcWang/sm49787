@@ -1,4 +1,5 @@
-package main.java.apphw.rest;
+package app17.rest;
+
 /*
 * cardNum Number;
 * cardType String;

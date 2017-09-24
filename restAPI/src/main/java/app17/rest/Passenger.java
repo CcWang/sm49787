@@ -1,4 +1,5 @@
-package main.java.apphw.rest;
+package app17.rest;
+
 /*
 * firstName String
 * middleName String
@@ -13,19 +14,20 @@ package main.java.apphw.rest;
 * drivingLicenseNumber String
 * licenseIssuedState String
 * rating Number
+* paymentMethodId String
 *
 * */
 public class Passenger {
     String id = null;
     String firstName, middleName, lastName, emailAddress, password, addressLineOne,
             addressLineTwo, addressCity, addressState, addressPostal, drivingLicenseNumber,
-            licenseIssuedState;
+            licenseIssuedState,paymentMethodId;
     Number rating;
 
     public Passenger(String firstName, String middleName, String lastName, String emailAddress,
-                  String password, String addressLineOne, String addressLineTwo, String addressCity,
-                  String addressState, String addressPostal, String drivingLicenseNumber, String licenseIssuedState,
-                  Number rating){
+                     String password, String addressLineOne, String addressLineTwo, String addressCity,
+                     String addressState, String addressPostal, String drivingLicenseNumber, String licenseIssuedState,
+                     Number rating, String paymentMethodId){
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -39,7 +41,7 @@ public class Passenger {
         this.drivingLicenseNumber = drivingLicenseNumber;
         this.licenseIssuedState = licenseIssuedState;
         this.rating = rating;
-
+        this.paymentMethodId = paymentMethodId;
 
     }
     public void setId(String id) {
