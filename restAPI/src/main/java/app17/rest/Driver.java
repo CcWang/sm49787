@@ -16,7 +16,7 @@ import java.util.List;
 * drivingLicenseNumber String
 * licenseIssuedState String
 * rating Number
-* bankAccountId String to store bankAccount id
+* bankAccountId String
 *
 * */
 public class Driver {

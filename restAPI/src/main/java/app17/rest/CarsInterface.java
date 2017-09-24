@@ -14,6 +14,20 @@ import org.codehaus.jettison.json.JSONObject;
 
 import java.util.ArrayList;
 
+/*
+* make string
+* model string
+* year int
+* size string
+* licensePlate string
+* licensedState string
+* vin string
+* odometer int
+* currentInsurer string
+* purchasedYear int
+* ownerNameInTitle string
+* everBeenInAccident boolean
+* */
 @Path("cars")
 public class CarsInterface {
 
@@ -44,8 +58,14 @@ public class CarsInterface {
                     item.getString("model"),
                     item.getInteger("year", -1),
                     item.getString("size"),
-                    item.getString("color"),
-                    item.getInteger("odometer")
+                    item.getString("licensePlate"),
+                    item.getString("licensedState"),
+                    item.getString("vin"),
+                    item.getInteger("odometer"),
+                    item.getString("currentInsurer"),
+                    item.getInteger("purchasedYear"),
+                    item.getString("ownerNameInTitle"),
+                    item.getBoolean("everBeenInAccident")
             );
             car.setId(item.getObjectId("_id").toString());
             carList.add(car);
@@ -72,8 +92,14 @@ public class CarsInterface {
                 item.getString("model"),
                 item.getInteger("year", -1),
                 item.getString("size"),
-                item.getString("color"),
-                item.getInteger("odometer")
+                item.getString("licensePlate"),
+                item.getString("licensedState"),
+                item.getString("vin"),
+                item.getInteger("odometer"),
+                item.getString("currentInsurer"),
+                item.getInteger("purchasedYear"),
+                item.getString("ownerNameInTitle"),
+                item.getBoolean("everBeenInAccident")
         );
         car.setId(item.getObjectId("_id").toString());
         return car;
@@ -85,16 +111,23 @@ public class CarsInterface {
     @Produces({ MediaType.APPLICATION_JSON})
     public Object create(JSONObject obj) {
         try {
-            Document doc = new Document("make", obj.getString("make"))
+            Document doc = new Document("make",obj.getString("make"))
                     .append("model", obj.getString("model"))
-                    .append("size", obj.getString("size"))
-                    .append("color", obj.getString("color"))
                     .append("year", obj.getInt("year"))
-                    .append("odometer", obj.getInt("odometer"));
+                    .append("size", obj.getString("size"))
+                    .append("licensePlate",obj.getString("licensePlate"))
+                    .append("licensedState", obj.getString("licensedState"))
+                    .append("vin", obj.getString("vin"))
+                    .append("odometer", obj.getInt("odometer"))
+                    .append("currentInsurer",obj.getString("currentInsurer"))
+                    .append("purchasedYear", obj.getInt("purchasedYear"))
+                    .append("ownerNameInTitle",obj.getString("ownerNameInTitle"))
+                    .append("everBeenInAccident", obj.getBoolean("everBeenInAccident"));
             collection.insertOne(doc);
 
-        } catch(JSONException e) {
 
+        } catch(JSONException e) {
+            System.out.println("Failed to create a document");
         }
 //        maybe return the obj id
 //        lot of post just simply return "success"
@@ -117,19 +150,32 @@ public class CarsInterface {
                 doc.append("make",obj.getString("make"));
             if (obj.has("model"))
                 doc.append("model",obj.getString("model"));
-            if (obj.has("color"))
-                doc.append("color",obj.getString("color"));
-            if (obj.has("size"))
-                doc.append("size",obj.getString("size"));
             if (obj.has("year"))
                 doc.append("year",obj.getInt("year"));
+            if (obj.has("size"))
+                doc.append("size",obj.getString("size"));
+            if (obj.has("licensePlate"))
+                doc.append("licensePlate",obj.getString("licensePlate"));
+            if (obj.has("licensedState"))
+                doc.append("licensedState",obj.getString("licensedState"));
+            if (obj.has("vin"))
+                doc.append("vin",obj.getString("vin"));
             if (obj.has("odometer"))
-                doc.append("odometer",obj.getString("odometer"));
+                doc.append("odometer",obj.getInt("odometer"));
+            if (obj.has("currentInsurer"))
+                doc.append("currentInsurer",obj.getString("currentInsurer"));
+            if (obj.has("purchasedYear"))
+                doc.append("purchasedYear",obj.getInt("purchasedYear"));
+            if (obj.has("ownerNameInTitle"))
+                doc.append("ownerNameInTitle",obj.getString("ownerNameInTitle"));
+            if (obj.has("everBeenInAccident"))
+                doc.append("everBeenInAccident",obj.getBoolean("everBeenInAccident"));
+
             Document set = new Document("$set", doc);
             collection.updateOne(query,set);
 
         } catch(JSONException e) {
-            System.out.println("Failed to create a document");
+            System.out.println("Failed to update a document");
 
         }
         return obj;
