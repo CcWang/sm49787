@@ -1,10 +1,10 @@
-/
+
 {
   "id" : 1001,
   "cardNum" : 4400083719378183,
   "cardType" : "visa",
-  "expDate" : "2011-07",
+  "expDate" : "2011-07-00T00:00:00",
   "secCode" : 123,
-  "cardHolderName" : "John Smith",
+  "cardHolderName" : "John Smith"
 
 }
