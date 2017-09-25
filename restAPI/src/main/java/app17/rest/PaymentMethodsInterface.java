@@ -22,12 +22,12 @@ import java.util.ArrayList;
 * cardHolderName String;
 *
 * */
-@Path("bankAccounts")
-public class paymentMethods {
+@Path("paymentMethods")
+public class PaymentMethodsInterface {
 
     MongoCollection<Document> collection;
 
-    public paymentMethods() {
+    public PaymentMethodsInterface() {
         MongoClient mongoClient = new MongoClient();
         MongoDatabase database = mongoClient.getDatabase("app17");
 
