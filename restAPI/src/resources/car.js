@@ -48,7 +48,7 @@ coll.insert({
     "licensePlate":"1YU26OL",
     "licenseState":"CA",
     "vin":"vin90IL75skdjehn9820",
-    "odometer" : NumberInt(18342)
+    "odometer" : NumberInt(18342),
     "currentInsurer":"Geico",
     "purchasedYear":NumberInt(2013),
     "ownerNameInTitle":"Anne",
@@ -61,7 +61,7 @@ coll.insert({
     "licensePlate":"YU92YOL",
     "licenseState":"MA",
     "vin":"vin90IL75skdolhn9820",
-    "odometer" : NumberInt(44000)
+    "odometer" : NumberInt(44000),
     "currentInsurer":"Geico",
     "purchasedYear":NumberInt(2011),
     "ownerNameInTitle":"Catherine",

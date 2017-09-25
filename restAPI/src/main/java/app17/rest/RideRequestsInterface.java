@@ -22,7 +22,7 @@ import java.util.ArrayList;
 * passengerId String
 * driverID String
 * */
-@Path("paymentMethods")
+@Path("rideRequests")
 public class RideRequestsInterface {
 
     MongoCollection<Document> collection;
