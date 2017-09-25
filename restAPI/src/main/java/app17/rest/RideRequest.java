@@ -26,7 +26,7 @@ public class RideRequest{
 
     }
 
-    public void sedId(String id){
+    public void setId(String id){
 
         this.id = id;
     }
