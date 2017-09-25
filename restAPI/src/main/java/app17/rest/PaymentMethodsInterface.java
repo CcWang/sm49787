@@ -48,10 +48,10 @@ public class PaymentMethodsInterface {
         }
         for (Document item : results) {
             PaymentMethod pm = new PaymentMethod(
-                    item.getInteger("cardNum",-1),
+                    item.getDouble("cardNum"),
                     item.getString("cardType"),
                     item.getDate("expDate"),
-                    item.getInteger("secCode", -1),
+                    item.getDouble("secCode"),
                     item.getString("cardHolderName")
             );
 
@@ -76,10 +76,10 @@ public class PaymentMethodsInterface {
             return  null;
         }
         PaymentMethod pm = new PaymentMethod(
-                item.getInteger("cardNum",-1),
+                item.getDouble("cardNum"),
                 item.getString("cardType"),
                 item.getDate("expDate"),
-                item.getInteger("secCode", -1),
+                item.getDouble("secCode"),
                 item.getString("cardHolderName")
         );
         pm.setId(item.getObjectId("_id").toString());
@@ -92,10 +92,10 @@ public class PaymentMethodsInterface {
     @Produces({ MediaType.APPLICATION_JSON})
     public Object create(JSONObject obj) {
         try {
-            Document doc = new Document("cardNum",obj.getInt("cardNum"))
+            Document doc = new Document("cardNum",obj.getDouble("cardNum"))
                     .append("cardType", obj.getString("cardType"))
-                    .append("expDate",obj.getString("expDate"))
-                    .append("secCode", obj.getInt("secCode"))
+                    .append("expDate",obj.getDouble("expDate"))
+                    .append("secCode", obj.getDouble("secCode"))
                     .append("cardHolderName",obj.getString("cardHolderName"));
 
             collection.insertOne(doc);
@@ -122,13 +122,13 @@ public class PaymentMethodsInterface {
 
             Document doc = new Document();
             if (obj.has("cardNum"))
-                doc.append("cardNum",obj.getInt("cardNum"));
+                doc.append("cardNum",obj.getDouble("cardNum"));
             if (obj.has("cardType"))
                 doc.append("cardType",obj.getString("cardType"));
             if (obj.has("expDate"))
                 doc.append("expDate",obj.getString("expDate"));
             if (obj.has("secCode"))
-                doc.append("secCode",obj.getInt("secCode"));
+                doc.append("secCode",obj.getDouble("secCode"));
             if (obj.has("cardHolderName"))
                 doc.append("cardHolderName",obj.getString("cardHolderName"));
             Document set = new Document("$set", doc);

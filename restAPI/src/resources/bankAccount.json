@@ -1,7 +1,7 @@
 {
   "id" : 6517,
   "bankName" : "Bank Of American",
-  "accountNum" : 4098710938
+  "accountNum" : 4098710938,
   "routingNum" : 3800223,
   "accHolderName" : "John Smith",
   "verified" : true

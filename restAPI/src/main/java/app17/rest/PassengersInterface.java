@@ -67,7 +67,7 @@ public class PassengersInterface {
                     item.getString("addressPostal"),
                     item.getString("drivingLicenseNumber"),
                     item.getString("licenseIssuedState"),
-                    item.getInteger("rating"),
+                    item.getDouble("rating"),
                     item.getString("paymentMethodId")
             );
             passenger.setId(item.getObjectId("_id").toString());
@@ -99,7 +99,7 @@ public class PassengersInterface {
                 item.getString("addressPostal"),
                 item.getString("drivingLicenseNumber"),
                 item.getString("licenseIssuedState"),
-                item.getInteger("rating"),
+                item.getDouble("rating"),
                 item.getString("paymentMethodId")
         );
         passenger.setId(item.getObjectId("_id").toString());
@@ -124,7 +124,7 @@ public class PassengersInterface {
                     .append("addressPostal", obj.getString("addressPostal"))
                     .append("drivingLicenseNumber", obj.getString("drivingLicenseNumber"))
                     .append("licenseIssuedState", obj.getString("licenseIssuedState"))
-                    .append("rating", obj.getInt("rating"))
+                    .append("rating", obj.getDouble("rating"))
                     .append("paymentMethodId",obj.getString("paymentMethodId"));
             collection.insertOne(doc);
 
@@ -169,7 +169,7 @@ public class PassengersInterface {
             if (obj.has("licenseIssuedState"))
                 doc.append("licenseIssuedState",obj.getString("licenseIssuedState"));
             if (obj.has("rating"))
-                doc.append("rating",obj.getInt("rating"));
+                doc.append("rating",obj.getDouble("rating"));
             if (obj.has("paymentMethodId"))
                 doc.append("paymentMethodId",obj.getString("paymentMethodId"));
 

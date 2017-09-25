@@ -67,7 +67,7 @@ public class DriversInterface {
                     item.getString("addressPostal"),
                     item.getString("drivingLicenseNumber"),
                     item.getString("licenseIssuedState"),
-                    item.getInteger("rating"),
+                    item.getDouble("rating"),
                     item.getString("bankAccountId")
             );
             driver.setId(item.getObjectId("_id").toString());
@@ -99,7 +99,7 @@ public class DriversInterface {
                 item.getString("addressPostal"),
                 item.getString("drivingLicenseNumber"),
                 item.getString("licenseIssuedState"),
-                item.getInteger("rating"),
+                item.getDouble("rating"),
                 item.getString("bankAccountId")
         );
         driver.setId(item.getObjectId("_id").toString());
@@ -124,7 +124,7 @@ public class DriversInterface {
                     .append("addressPostal", obj.getString("addressPostal"))
                     .append("drivingLicenseNumber", obj.getString("drivingLicenseNumber"))
                     .append("licenseIssuedState", obj.getString("licenseIssuedState"))
-                    .append("rating", obj.getInt("rating"))
+                    .append("rating", obj.getDouble("rating"))
                     .append("bankAccountId",obj.getString("bankAccountId"));
             collection.insertOne(doc);
 
@@ -169,7 +169,7 @@ public class DriversInterface {
             if (obj.has("licenseIssuedState"))
                 doc.append("licenseIssuedState",obj.getString("licenseIssuedState"));
             if (obj.has("rating"))
-                doc.append("rating",obj.getInt("rating"));
+                doc.append("rating",obj.getDouble("rating"));
             if (obj.has("bankAccountId"))
                 doc.append("bankAccountId",obj.getString("bankAccountId"));
 

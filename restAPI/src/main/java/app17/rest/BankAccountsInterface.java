@@ -48,8 +48,8 @@ public class BankAccountsInterface {
         for (Document item : results) {
             BankAccount bankAccount = new BankAccount(
                     item.getString("bankName"),
-                    item.getInteger("accountNum",-1),
-                    item.getInteger("routingNum", -1),
+                    item.getDouble("accountNum"),
+                    item.getDouble("routingNum"),
                     item.getString("accHolderName"),
                     item.getBoolean("verified")
             );
@@ -76,8 +76,8 @@ public class BankAccountsInterface {
         }
         BankAccount ba = new BankAccount(
                 item.getString("bankName"),
-                item.getInteger("accountNum",-1),
-                item.getInteger("routingNum", -1),
+                item.getDouble("accountNum"),
+                item.getDouble("routingNum"),
                 item.getString("accHolderName"),
                 item.getBoolean("verified")
         );
@@ -92,8 +92,8 @@ public class BankAccountsInterface {
     public Object create(JSONObject obj) {
         try {
             Document doc = new Document("bankName",obj.getString("bankName"))
-                    .append("accountNum", obj.getInt("accountNum"))
-                    .append("routingNum", obj.getInt("routingNum"))
+                    .append("accountNum", obj.getDouble("accountNum"))
+                    .append("routingNum", obj.getDouble("routingNum"))
                     .append("accHolderName",obj.getString("accHolderName"))
                     .append("verified", obj.getBoolean("verified"));
             collection.insertOne(doc);
@@ -122,9 +122,9 @@ public class BankAccountsInterface {
             if (obj.has("bankName"))
                 doc.append("bankName",obj.getString("bankName"));
             if (obj.has("accountNum"))
-                doc.append("accountNum",obj.getInt("accountNum"));
+                doc.append("accountNum",obj.getDouble("accountNum"));
             if (obj.has("routingNum"))
-                doc.append("routingNum",obj.getInt("routingNum"));
+                doc.append("routingNum",obj.getDouble("routingNum"));
             if (obj.has("accHolderName"))
                 doc.append("accHolderName",obj.getString("accHolderName"));
             if (obj.has("verified"))

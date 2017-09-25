@@ -48,10 +48,10 @@ public class RideRequestsInterface {
         }
         for (Document item : results) {
             RideRequest rideRequest = new RideRequest(
-                    item.getInteger("startLat",-1),
-                    item.getInteger("startLon", -1),
-                    item.getInteger("endLat",-1),
-                    item.getInteger("endLon", -1),
+                    item.getDouble("startLat"),
+                    item.getDouble("startLon"),
+                    item.getDouble("endLat"),
+                    item.getDouble("endLon"),
                     item.getString("passengerId"),
                     item.getString("driverId")
             );
@@ -77,10 +77,10 @@ public class RideRequestsInterface {
             return  null;
         }
         RideRequest rideRequest = new RideRequest(
-                item.getInteger("startLat",-1),
-                item.getInteger("startLon", -1),
-                item.getInteger("endLat",-1),
-                item.getInteger("endLon", -1),
+                item.getDouble("startLat"),
+                item.getDouble("startLon"),
+                item.getDouble("endLat"),
+                item.getDouble("endLon"),
                 item.getString("passengerId"),
                 item.getString("driverId")
         );
@@ -94,10 +94,10 @@ public class RideRequestsInterface {
     @Produces({ MediaType.APPLICATION_JSON})
     public Object create(JSONObject obj) {
         try {
-            Document doc = new Document("startLat",obj.getInt("startLat"))
-                    .append("startLon", obj.getInt("startLon"))
-                    .append("endLat", obj.getInt("endLat"))
-                    .append("endLon", obj.getInt("endLon"))
+            Document doc = new Document("startLat",obj.getDouble("startLat"))
+                    .append("startLon", obj.getDouble("startLon"))
+                    .append("endLat", obj.getDouble("endLat"))
+                    .append("endLon", obj.getDouble("endLon"))
                     .append("passengerId",obj.getString("passengerId"))
                     .append("driverId",obj.getString("driverId"));
 
@@ -125,13 +125,13 @@ public class RideRequestsInterface {
 
             Document doc = new Document();
             if (obj.has("startLat"))
-                doc.append("startLat",obj.getInt("startLat"));
+                doc.append("startLat",obj.getDouble("startLat"));
             if (obj.has("startLon"))
-                doc.append("startLon",obj.getInt("startLon"));
+                doc.append("startLon",obj.getDouble("startLon"));
             if (obj.has("endLat"))
-                doc.append("endLat",obj.getInt("endLat"));
+                doc.append("endLat",obj.getDouble("endLat"));
             if (obj.has("endLon"))
-                doc.append("endLon",obj.getInt("endLon"));
+                doc.append("endLon",obj.getDouble("endLon"));
             if (obj.has("passengerId"))
                 doc.append("passengerId",obj.getString("passengerId"));
             if (obj.has("driverId"))
