@@ -51,7 +51,7 @@ public class PaymentMethodsInterface {
                     item.getDouble("cardNum"),
                     item.getString("cardType"),
                     item.getDate("expDate"),
-                    item.getDouble("secCode"),
+                    item.getInteger("secCode"),
                     item.getString("cardHolderName")
             );
 
@@ -79,7 +79,7 @@ public class PaymentMethodsInterface {
                 item.getDouble("cardNum"),
                 item.getString("cardType"),
                 item.getDate("expDate"),
-                item.getDouble("secCode"),
+                item.getInteger("secCode"),
                 item.getString("cardHolderName")
         );
         pm.setId(item.getObjectId("_id").toString());
@@ -95,7 +95,7 @@ public class PaymentMethodsInterface {
             Document doc = new Document("cardNum",obj.getDouble("cardNum"))
                     .append("cardType", obj.getString("cardType"))
                     .append("expDate",obj.getDouble("expDate"))
-                    .append("secCode", obj.getDouble("secCode"))
+                    .append("secCode", obj.getInt("secCode"))
                     .append("cardHolderName",obj.getString("cardHolderName"));
 
             collection.insertOne(doc);
@@ -128,7 +128,7 @@ public class PaymentMethodsInterface {
             if (obj.has("expDate"))
                 doc.append("expDate",obj.getString("expDate"));
             if (obj.has("secCode"))
-                doc.append("secCode",obj.getDouble("secCode"));
+                doc.append("secCode",obj.getInt("secCode"));
             if (obj.has("cardHolderName"))
                 doc.append("cardHolderName",obj.getString("cardHolderName"));
             Document set = new Document("$set", doc);

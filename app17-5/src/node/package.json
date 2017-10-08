@@ -1,0 +1,7 @@
+{
+  "name": "node",
+  "version": "0.0.1",
+  "dependencies": {
+    "mongodb": "^2.2.31"
+  }
+}

@@ -49,7 +49,7 @@ public class BankAccountsInterface {
             BankAccount bankAccount = new BankAccount(
                     item.getString("bankName"),
                     item.getDouble("accountNum"),
-                    item.getDouble("routingNum"),
+                    item.getInteger("routingNum", -1),
                     item.getString("accHolderName"),
                     item.getBoolean("verified")
             );
@@ -77,7 +77,7 @@ public class BankAccountsInterface {
         BankAccount ba = new BankAccount(
                 item.getString("bankName"),
                 item.getDouble("accountNum"),
-                item.getDouble("routingNum"),
+                item.getInteger("routingNum"),
                 item.getString("accHolderName"),
                 item.getBoolean("verified")
         );
@@ -93,7 +93,7 @@ public class BankAccountsInterface {
         try {
             Document doc = new Document("bankName",obj.getString("bankName"))
                     .append("accountNum", obj.getDouble("accountNum"))
-                    .append("routingNum", obj.getDouble("routingNum"))
+                    .append("routingNum", obj.getInt("routingNum"))
                     .append("accHolderName",obj.getString("accHolderName"))
                     .append("verified", obj.getBoolean("verified"));
             collection.insertOne(doc);
@@ -124,7 +124,7 @@ public class BankAccountsInterface {
             if (obj.has("accountNum"))
                 doc.append("accountNum",obj.getDouble("accountNum"));
             if (obj.has("routingNum"))
-                doc.append("routingNum",obj.getDouble("routingNum"));
+                doc.append("routingNum",obj.getInt("routingNum"));
             if (obj.has("accHolderName"))
                 doc.append("accHolderName",obj.getString("accHolderName"));
             if (obj.has("verified"))
